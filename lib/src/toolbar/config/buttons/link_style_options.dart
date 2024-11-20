@@ -1,5 +1,6 @@
 /// @docImport '../../../rules/insert.dart';
 library;
+import 'package:flutter/widgets.dart' show Color, Widget;
 
 import '../../../common/utils/link_validator.dart';
 import '../../simple_toolbar.dart';
@@ -22,6 +23,8 @@ class QuillToolbarLinkStyleButtonOptions extends QuillToolbarBaseButtonOptions<
     this.dialogTheme,
     this.linkRegExp,
     this.linkDialogAction,
+    this.dialogBarrierColor,
+    this.linkDialogBuilder,
     this.validateLink,
     super.iconSize,
     super.iconButtonFactor,
@@ -40,6 +43,8 @@ class QuillToolbarLinkStyleButtonOptions extends QuillToolbarBaseButtonOptions<
   @Deprecated('Use validateLink instead')
   final RegExp? linkRegExp;
   final LinkDialogAction? linkDialogAction;
+  final Color? dialogBarrierColor;
+  final Widget Function(String, String)? linkDialogBuilder;
 
   /// {@macro link_validation_callback}
   ///
