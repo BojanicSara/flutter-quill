@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/widgets.dart'
-    show Axis, Color, Decoration, WrapAlignment, WrapCrossAlignment;
+    show Axis, Color, Decoration, WrapAlignment, WrapCrossAlignment, Widget;
 
 import '../../editor_toolbar_shared/config/quill_shared_configurations.dart';
 import '../base_toolbar.dart';
@@ -18,6 +18,7 @@ abstract class QuillSharedToolbarProperties extends Equatable {
     this.sectionDividerColor,
     this.sectionDividerSpace,
     this.linkDialogAction,
+    this.linkDialogBuilder,
     this.multiRowsDisplay = true,
     this.decoration,
     this.buttonOptions = const QuillSimpleToolbarButtonOptions(),
@@ -35,6 +36,7 @@ abstract class QuillSharedToolbarProperties extends Equatable {
 
   // Overrides the action in the _LinkDialog widget
   final LinkDialogAction? linkDialogAction;
+  final Widget Function(String, String)? linkDialogBuilder;
 
   /// The color of the toolbar.
   ///
