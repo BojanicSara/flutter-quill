@@ -320,12 +320,24 @@ class QuillSimpleToolbar extends StatelessWidget
       ];
 
       final buttonsAll = <Widget>[];
+      final nonEmptyGroupIndexes = [
+        for (var i = 0; i < groups.length; i++)
+          if (groups[i].isNotEmpty) i
+      ];
 
-      for (var i = 0; i < groups.length; i++) {
+      final indexesToAvoidDivider = [];
+      if (nonEmptyGroupIndexes.isNotEmpty) {
+        indexesToAvoidDivider.add(nonEmptyGroupIndexes.last);
+        if (nonEmptyGroupIndexes.length > 1 && configurations.customButtons.isNotEmpty) {
+          indexesToAvoidDivider.add(nonEmptyGroupIndexes[nonEmptyGroupIndexes.length - 2]);
+        }
+      }
+
+      for (var i = 0; i < groups.length - 1; i++) {
         final buttons = groups[i];
 
         if (buttons.isNotEmpty) {
-          if (buttonsAll.isNotEmpty && config.showDividers) {
+          if (buttonsAll.isNotEmpty && config.showDividers  && !indexesToAvoidDivider.contains(i)) {
             buttonsAll.add(divider);
           }
           buttonsAll.addAll(buttons);
@@ -384,12 +396,10 @@ class QuillToolbarDivider extends StatelessWidget {
   });
 
   /// Provides a horizontal divider for vertical toolbar.
-  const QuillToolbarDivider.horizontal({Key? key, Color? color, double? space})
-      : this(Axis.horizontal, color: color, space: space, key: key);
+  const QuillToolbarDivider.horizontal({Key? key, Color? color, double? space}) : this(Axis.horizontal, color: color, space: space, key: key);
 
   /// Provides a horizontal divider for horizontal toolbar.
-  const QuillToolbarDivider.vertical({Key? key, Color? color, double? space})
-      : this(Axis.vertical, color: color, space: space, key: key);
+  const QuillToolbarDivider.vertical({Key? key, Color? color, double? space}) : this(Axis.vertical, color: color, space: space, key: key);
 
   /// The axis along which the toolbar is.
   final Axis axis;
