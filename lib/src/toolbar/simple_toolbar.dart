@@ -325,19 +325,12 @@ class QuillSimpleToolbar extends StatelessWidget
           if (groups[i].isNotEmpty) i
       ];
 
-      final indexesToAvoidDivider = [];
-      if (nonEmptyGroupIndexes.isNotEmpty) {
-        indexesToAvoidDivider.add(nonEmptyGroupIndexes.last);
-        if (nonEmptyGroupIndexes.length > 1 && configurations.customButtons.isNotEmpty) {
-          indexesToAvoidDivider.add(nonEmptyGroupIndexes[nonEmptyGroupIndexes.length - 2]);
-        }
-      }
-
       for (var i = 0; i < groups.length; i++) {
         final buttons = groups[i];
 
         if (buttons.isNotEmpty) {
-          if (buttonsAll.isNotEmpty && config.showDividers  && !indexesToAvoidDivider.contains(i)) {
+          final isLastGroup = i == nonEmptyGroupIndexes.last;
+          if (buttonsAll.isNotEmpty && config.showDividers && !(isLastGroup && configurations.customButtons.isNotEmpty)) {
             buttonsAll.add(divider);
           }
           buttonsAll.addAll(buttons);
