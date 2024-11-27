@@ -299,7 +299,7 @@ class QuillSimpleToolbar extends StatelessWidget implements PreferredSizeWidget 
         }
       }
 
-      for (var i = 0; i < groups.length - 1; i++) {
+      for (var i = 0; i < groups.length; i++) {
         final buttons = groups[i];
 
         if (buttons.isNotEmpty) {
