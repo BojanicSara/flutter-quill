@@ -39,7 +39,7 @@ class QuillSimpleToolbar extends StatelessWidget implements PreferredSizeWidget 
   /// The configurations for the toolbar widget of flutter quill
   QuillSimpleToolbarConfigurations get configurations => controller.toolbarConfigurations;
 
-  double get _toolbarSize => configurations.toolbarSize * 1.4;
+  double get _toolbarSize => configurations.toolbarSize;
 
   @override
   Widget build(BuildContext context) {
@@ -291,19 +291,12 @@ class QuillSimpleToolbar extends StatelessWidget implements PreferredSizeWidget 
           if (groups[i].isNotEmpty) i
       ];
 
-      final indexesToAvoidDivider = [];
-      if (nonEmptyGroupIndexes.isNotEmpty) {
-        indexesToAvoidDivider.add(nonEmptyGroupIndexes.last);
-        if (nonEmptyGroupIndexes.length > 1 && configurations.customButtons.isNotEmpty) {
-          indexesToAvoidDivider.add(nonEmptyGroupIndexes[nonEmptyGroupIndexes.length - 2]);
-        }
-      }
-
       for (var i = 0; i < groups.length; i++) {
         final buttons = groups[i];
 
         if (buttons.isNotEmpty) {
-          if (buttonsAll.isNotEmpty && configurations.showDividers && !indexesToAvoidDivider.contains(i)) {
+          final isLastGroup = i == nonEmptyGroupIndexes.last;
+          if (buttonsAll.isNotEmpty && configurations.showDividers && !(isLastGroup && configurations.customButtons.isNotEmpty)) {
             buttonsAll.add(divider);
           }
           buttonsAll.addAll(buttons);
