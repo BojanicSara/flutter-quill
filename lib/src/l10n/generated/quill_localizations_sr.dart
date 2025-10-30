@@ -1,3 +1,5 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'quill_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -271,20 +273,20 @@ class FlutterQuillLocalizationsSr extends FlutterQuillLocalizations {
   String get insertImage => 'Umetni sliku';
 
   @override
-  String get pickAPhotoFromYourGallery => 'Izaberite sliku iz vaše galerije';
+  String get pickAPhotoFromYourGallery => 'Izaberite sliku iz Vaše galerije';
 
   @override
   String get takeAPhotoUsingYourCamera =>
-      'Napravite fotografiju koristeći vašu kameru';
+      'Napravite fotografiju koristeći Vašu kameru';
 
   @override
   String get pasteAPhotoUsingALink => 'Zalepite sliku koristeći link';
 
   @override
-  String get pickAVideoFromYourGallery => 'Izaberite video iz vaše galerije';
+  String get pickAVideoFromYourGallery => 'Izaberite video iz Vaše galerije';
 
   @override
-  String get recordAVideoUsingYourCamera => 'Snimi video koristeći vašu kameru';
+  String get recordAVideoUsingYourCamera => 'Snimi video koristeći Vašu kameru';
 
   @override
   String get pasteAVideoUsingALink => 'Zalepite video koristeći link';
@@ -303,4 +305,33 @@ class FlutterQuillLocalizationsSr extends FlutterQuillLocalizations {
 
   @override
   String get insertTable => 'Ubaci tabelu';
+
+  @override
+  String get insertVideo => 'Insert video';
+
+  @override
+  String get errorUnexpectedSavingImage =>
+      'An unexpected error occurred while saving the image. Please try again.';
+
+  @override
+  String get successImageSavedGallery => 'Image saved to your gallery.';
+
+  @override
+  String get successImageSaved => 'Image saved successfully.';
+
+  @override
+  String get successImageDownloaded => 'Image downloaded successfully.';
+
+  @override
+  String get openGallery => 'Open Gallery';
+
+  @override
+  String get openFileLocation => 'Open File Location';
+
+  @override
+  String get openFile => 'Open File';
+
+  @override
+  String get saveImagePermissionDenied =>
+      'Couldn’t save the image due to missing permission';
 }

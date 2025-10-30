@@ -1,12 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:meta/meta.dart';
 
 import '../../controller/quill_controller.dart';
 import '../../document/attribute.dart';
 import '../../document/nodes/node.dart';
 import '../../l10n/extensions/localizations_ext.dart';
 
+@Deprecated(
+  'Moved to LinkValidator.linkPrefixes but no longer available with the public'
+  'API. The item `http` has been removed and replaced with `http://` and `https://`.',
+)
+@internal
 const linkPrefixes = [
   'mailto:', // email
   'tel:', // telephone
@@ -158,17 +164,17 @@ Future<LinkMenuAction> _showCupertinoLinkMenu(
         title: Text(link),
         actions: [
           _CupertinoAction(
-            title: 'Open',
+            title: context.loc.open,
             icon: Icons.language_sharp,
             onPressed: () => Navigator.of(context).pop(LinkMenuAction.launch),
           ),
           _CupertinoAction(
-            title: 'Copy',
+            title: context.loc.copy,
             icon: Icons.copy_sharp,
             onPressed: () => Navigator.of(context).pop(LinkMenuAction.copy),
           ),
           _CupertinoAction(
-            title: 'Remove',
+            title: context.loc.remove,
             icon: Icons.link_off_sharp,
             onPressed: () => Navigator.of(context).pop(LinkMenuAction.remove),
           ),
@@ -209,7 +215,7 @@ class _CupertinoAction extends StatelessWidget {
             Icon(
               icon,
               size: theme.iconTheme.size,
-              color: theme.colorScheme.onSurface.withOpacity(0.75),
+              color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
             )
           ],
         ),
@@ -267,7 +273,7 @@ class _MaterialAction extends StatelessWidget {
       leading: Icon(
         icon,
         size: theme.iconTheme.size,
-        color: theme.colorScheme.onSurface.withOpacity(0.75),
+        color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
       ),
       title: Text(title),
       onTap: onPressed,
