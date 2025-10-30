@@ -103,6 +103,13 @@ class QuillToolbarLinkStyleButtonState
     final textLink = await showDialog<QuillTextLink>(
       context: context,
       builder: (_) {
+        final customDialogBuilder = options.linkDialogBuilder;
+        if (customDialogBuilder != null) {
+          return customDialogBuilder(
+            initialTextLink.text,
+            initialTextLink.link ?? '',
+          );
+        }
         return LinkDialog(
           validateLink: options.validateLink,
           // ignore: deprecated_member_use_from_same_package

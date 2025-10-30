@@ -40,7 +40,7 @@ class QuillSimpleToolbar extends StatelessWidget
 
   final QuillSimpleToolbarConfig config;
 
-  double get _toolbarSize => config.toolbarSize * 1.4;
+  double get _toolbarSize => config.toolbarSize;
 
   @override
   Widget build(BuildContext context) {
@@ -330,7 +330,7 @@ class QuillSimpleToolbar extends StatelessWidget
 
         if (buttons.isNotEmpty) {
           final isLastGroup = i == nonEmptyGroupIndexes.last;
-          if (buttonsAll.isNotEmpty && config.showDividers && !(isLastGroup && configurations.customButtons.isNotEmpty)) {
+          if (buttonsAll.isNotEmpty && config.showDividers && !(isLastGroup && config.customButtons.isNotEmpty)) {
             buttonsAll.add(divider);
           }
           buttonsAll.addAll(buttons);

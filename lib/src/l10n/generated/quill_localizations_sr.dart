@@ -273,20 +273,20 @@ class FlutterQuillLocalizationsSr extends FlutterQuillLocalizations {
   String get insertImage => 'Umetni sliku';
 
   @override
-  String get pickAPhotoFromYourGallery => 'Izaberite sliku iz vaše galerije';
+  String get pickAPhotoFromYourGallery => 'Izaberite sliku iz Vaše galerije';
 
   @override
   String get takeAPhotoUsingYourCamera =>
-      'Napravite fotografiju koristeći vašu kameru';
+      'Napravite fotografiju koristeći Vašu kameru';
 
   @override
   String get pasteAPhotoUsingALink => 'Zalepite sliku koristeći link';
 
   @override
-  String get pickAVideoFromYourGallery => 'Izaberite video iz vaše galerije';
+  String get pickAVideoFromYourGallery => 'Izaberite video iz Vaše galerije';
 
   @override
-  String get recordAVideoUsingYourCamera => 'Snimi video koristeći vašu kameru';
+  String get recordAVideoUsingYourCamera => 'Snimi video koristeći Vašu kameru';
 
   @override
   String get pasteAVideoUsingALink => 'Zalepite video koristeći link';
